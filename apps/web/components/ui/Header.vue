@@ -201,13 +201,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  SfBadge,
-  SfIconLanguage,
-  SfIconFavorite,
-  SfIconShoppingCart,
-  useDisclosure,
-} from '@storefront-ui/vue';
+import { SfBadge, SfIconLanguage, SfIconFavorite, SfIconShoppingCart, useDisclosure } from '@storefront-ui/vue';
 import { paths } from '~/utils/paths';
 import { useCart, useWishlist, useCustomer } from '~/composables';
 

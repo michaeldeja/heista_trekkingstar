@@ -38,14 +38,18 @@
                 <!-- Bild -->
                 <img
                   :src="addModernImageExtension(productGetters.getCoverImage(product))"
-                  :alt="productImageGetters.getImageAlternate(productImageGetters.getFirstImage(product)) || productGetters.getName(product) || ''"
+                  :alt="
+                    productImageGetters.getImageAlternate(productImageGetters.getFirstImage(product)) ||
+                    productGetters.getName(product) ||
+                    ''
+                  "
                   class="w-full h-[300px] object-cover"
                 />
 
                 <!-- Immer sichtbarer Teil: Preis und Artikelname -->
                 <div class="mt-2">
                   <h3 class="text-sm font-bold">{{ productGetters.getName(product) }}</h3>
-                  
+
                   <!-- Preis immer sichtbar -->
                   <p class="font-bold text-lg">
                     {{ formatPrice(productGetters.getPrice(product)) }}
@@ -53,7 +57,7 @@
 
                   <!-- Preis pro Einheit anzeigen, falls vorhanden -->
                   <p v-if="productGetters.showPricePerUnit(product)" class="text-sm text-gray-500 mt-1">
-                    {{ productGetters.getUnitContent(product) }} {{ productGetters.getUnitName(product) }} = 
+                    {{ productGetters.getUnitContent(product) }} {{ productGetters.getUnitName(product) }} =
                     {{ formatPrice(productGetters.getPrice(product)) }}
                   </p>
                 </div>
@@ -71,7 +75,10 @@
                       stroke="currentColor"
                       class="w-4 h-4 text-gray-400"
                     >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
                         d="M12 .587l3.668 7.431 8.21 1.193-5.941 5.787 1.4 8.168L12 18.896l-7.337 3.857 1.4-8.168L.122 9.211l8.21-1.193z"
                       />
                     </svg>

@@ -6,12 +6,7 @@
         <h3 class="font-bold mb-4">{{ $t(`categories.${key}.label`) }}</h3>
         <ul>
           <li v-for="{ key: subcategoryKey, link } in subcategories" :key="subcategoryKey">
-            <SfLink
-              :tag="NuxtLink"
-              class="text-neutral-400 hover:text-white"
-              variant="secondary"
-              :to="link"
-            >
+            <SfLink :tag="NuxtLink" class="text-neutral-400 hover:text-white" variant="secondary" :to="link">
               {{ $t(`categories.${key}.subcategories.${subcategoryKey}`) }}
             </SfLink>
           </li>
@@ -34,7 +29,11 @@
         <div>
           <h3 class="font-bold mb-4 text-center md:text-left">Unsere Partner</h3>
           <div class="flex justify-center md:justify-start space-x-4">
-            <img src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/idealo.png" alt="Idealo" class="h-20" />
+            <img
+              src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/idealo.png"
+              alt="Idealo"
+              class="h-20"
+            />
             <img src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/dhl.jpg" alt="DHL" class="h-20" />
           </div>
         </div>
@@ -43,10 +42,26 @@
         <div>
           <h3 class="font-bold mb-4 text-center md:text-left">Zahlungsarten</h3>
           <div class="flex justify-center md:justify-start space-x-4">
-            <img src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/icon_paypal.png" alt="PayPal" class="h-8" />
-            <img src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/icon_visa.png" alt="Visa" class="h-8" />
-            <img src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/icon_mastercard.png" alt="Mastercard" class="h-8" />
-            <img src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/icon_vorkasse.png" alt="Vorkasse" class="mx-auto" />
+            <img
+              src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/icon_paypal.png"
+              alt="PayPal"
+              class="h-8"
+            />
+            <img
+              src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/icon_visa.png"
+              alt="Visa"
+              class="h-8"
+            />
+            <img
+              src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/icon_mastercard.png"
+              alt="Mastercard"
+              class="h-8"
+            />
+            <img
+              src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/icon_vorkasse.png"
+              alt="Vorkasse"
+              class="mx-auto"
+            />
           </div>
         </div>
       </div>
