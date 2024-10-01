@@ -32,6 +32,7 @@
     },
     "dependencies": {
         "@plentymarkets/shop-api": "^0.62.0",
+        "@storefront-ui/vue": "^2.6.4",
         "@types/applepayjs": "^14.0.8",
         "@vee-validate/nuxt": "^4.13.1",
         "@vee-validate/yup": "^4.13.1",

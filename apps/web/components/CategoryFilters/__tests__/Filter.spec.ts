@@ -10,7 +10,7 @@ describe('<Filter />', () => {
           count: 3,
           name: 'test facet',
           names:[ {
-              lang: 'en',
+              lang: 'de',
               name: 'test facet translation name'
           }],
           type: 'color',

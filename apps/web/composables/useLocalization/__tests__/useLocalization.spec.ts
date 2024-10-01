@@ -6,7 +6,7 @@ describe('useLocalization', () => {
         return {
           $i18n: {
             locale: ref('de'),
-            defaultLocale: 'en',
+            defaultLocale: 'de',
             strategy: 'prefix_and_default',
           }
         }
@@ -51,7 +51,7 @@ describe('useLocalization', () => {
     useNuxtApp.mockImplementation(() => {
       return {
         $i18n: {
-          locale: ref('en'),
+          locale: ref('de'),
           defaultLocale: 'de',
           strategy: 'prefix',
         }

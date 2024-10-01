@@ -4238,6 +4238,7 @@ __metadata:
     "@nuxtjs/turnstile": ^0.8.0
     "@paypal/paypal-js": 8.1.0
     "@plentymarkets/shop-api": ^0.62.0
+    "@storefront-ui/vue": ^2.6.4
     "@types/applepayjs": ^14.0.8
     "@types/jquery": ^3.5.29
     "@types/uuid": ^9.0.8
@@ -4806,6 +4807,22 @@ __metadata:
   peerDependencies:
     vue: ^3.4.27
   checksum: 4b4fd4fb389e5b53f7af77529787a2d2617c3a91033385996fc243f9bba1930c45838b8fc4e0c460e27b7747c641669996e5fb301cfd816d9deed3d614ad9204
+  languageName: node
+  linkType: hard
+
+"@storefront-ui/vue@npm:^2.6.4":
+  version: 2.6.4
+  resolution: "@storefront-ui/vue@npm:2.6.4"
+  dependencies:
+    "@floating-ui/vue": ^1.0.6
+    "@storefront-ui/shared": 2.5.1
+    "@storefront-ui/tailwind-config": 2.5.1
+    "@vueuse/core": ^10.9.0
+    jw-paginate: ^1.0.4
+    tabbable: ^6.1.1
+  peerDependencies:
+    vue: ^3.4.27
+  checksum: 3cea6a12544d5c9dcd28b6fc37cf0c05ef89ca37b3a12d45598b76f4be0cd61960b8d0d3ad8a0ffeda74f98e3546f4d599f99c20ba6c2ccb1aa2ce48602e5f48
   languageName: node
   linkType: hard
 

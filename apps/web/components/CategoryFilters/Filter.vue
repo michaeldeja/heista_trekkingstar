@@ -2,33 +2,15 @@
   <SfAccordionItem v-if="facet" v-model="open">
     <template #summary>
       <div class="flex justify-between p-2 mb-2 select-none">
-        <p class="mb-2 font-medium typography-headline-5">{{ facetGetters.getName(facet) }}</p>
+        <p class="mb-2 font-medium typography-headline-5 text-neutral-900 hover:text-orange-500 hover:font-bold">
+          {{ facetGetters.getName(facet) }}
+        </p>
         <SfIconChevronLeft :class="['text-neutral-500', open ? 'rotate-90' : '-rotate-90']" />
       </div>
     </template>
 
-    <div v-if="facetGetters.getType(facet) === 'feedback'">
-      <!-- <SfListItem
-        v-for="(filter, index) in facetGetters.getFilters(facet) as Filter[]"
-        :key="index"
-        tag="label"
-        size="sm"
-        class="!items-center py-4 md:py-1 px-1.5 bg-transparent hover:bg-transparent"
-      >
-        <template #prefix>
-          <SfRadio class="flex items-center" :checked="filter.selected ?? false" />
-        </template>
-        <div class="flex flex-wrap items-center">
-          <SfRating class="-mt-px" :value="Number(filter.id.toString().replace('feedback-', ''))" :max="5" size="sm" />
-          <span :class="['mx-2 text-base md:text-sm']">{{
-            Number(filter.id.toString().replace('feedback-', ''))
-          }}</span>
-          <SfCounter size="sm">{{ filter.count }}</SfCounter>
-        </div>
-      </SfListItem> -->
-    </div>
-
-    <form v-else-if="facetGetters.getType(facet) === 'price'" class="mb-4" @submit.prevent="updatePriceFilter">
+    <!-- Bedingung für Preisbereich -->
+    <form v-if="facetGetters.getType(facet) === 'price'" class="mb-4" @submit.prevent="updatePriceFilter">
       <div class="mb-3">
         <label for="min">
           <UiFormLabel class="text-start">{{ $t('min') }}</UiFormLabel>
@@ -59,14 +41,14 @@
       </div>
     </form>
 
+    <!-- Bedingung für andere Filtertypen -->
     <div v-else class="mb-4">
       <SfListItem
-        v-for="(filter, index) in facetGetters.getFilters(facet) as Filter[]"
+        v-for="(filter, index) in facetGetters.getFilters(facet)"
         :key="index"
         tag="label"
         size="sm"
-        :data-testid="'category-filter-' + index"
-        class="px-1.5 bg-transparent hover:bg-transparent"
+        class="px-1.5 bg-white hover:bg-white" <!-- Hintergrund bleibt weiß -->
       >
         <template #prefix>
           <SfCheckbox
@@ -77,7 +59,7 @@
             class="flex items-center"
           />
         </template>
-        <p class="select-none">
+        <p class="select-none hover:text-orange-500 hover:font-bold">
           <span class="mr-2 text-sm">{{ filter.name ?? '' }}</span>
           <SfCounter size="sm">{{ filter.count ?? 0 }}</SfCounter>
         </p>
@@ -99,7 +81,7 @@ import {
   SfCounter,
 } from '@storefront-ui/vue';
 import type { FilterProps } from '~/components/CategoryFilters/types';
-import type { Filters } from '~/composables';
+import { ref, watch } from 'vue';
 
 const route = useRoute();
 const { getFacetsFromURL, updateFilters, updatePrices } = useCategoryFilter();
@@ -142,7 +124,6 @@ watch(
   () => route.query,
   async () => {
     updateFilter();
-
     minPrice.value = getFacetsFromURL().priceMin ?? '';
     maxPrice.value = getFacetsFromURL().priceMax ?? '';
   },

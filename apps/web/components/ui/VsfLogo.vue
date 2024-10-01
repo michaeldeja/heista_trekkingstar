@@ -1,10 +1,5 @@
 <template>
   <picture>
-    <NuxtImg :src="imagePath" alt="plentyShop PWA Logo" class="w-100 h-10 py-2" width="150" height="40" preload />
+    <!-- <NuxtImg src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/logo/trekking-star.png" alt="plentyShop PWA Logo" class="w-100 h-30 py-2" width="210" height="80" preload /> -->
   </picture>
 </template>
-
-<script setup lang="ts">
-const imageExtension = useRuntimeConfig().public.headerLogo.split('.').pop();
-const imagePath = '/images/logo.' + imageExtension;
-</script>

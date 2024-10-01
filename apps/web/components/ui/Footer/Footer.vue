@@ -1,49 +1,78 @@
 <template>
-  <footer class="pt-10 bg-neutral-100 md:mb-0" data-testid="footer" :class="simplifiedFooter ? 'mb-0' : 'mb-[58px]'">
-    <div
-      class="grid justify-center grid-cols-[1fr_1fr] md:grid-cols-[repeat(4,1fr)] px-4 md:px-6 pb-10 max-w-screen-3xl mx-auto"
-      data-testid="section-top"
-    >
-      <div v-for="{ key, subcategories } in categories" :key="key" class="min-w-[25%] xs:min-w-[50%] flex flex-col">
-        <div class="ml-4 text-lg font-medium leading-7 text-neutral-900">
-          {{ $t(`categories.${key}.label`) }}
-        </div>
+  <footer class="bg-black text-white">
+    <!-- Erste Zeile: Kategorien -->
+    <div class="max-w-screen-xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-6 py-8 px-4 md:px-8">
+      <div v-for="{ key, subcategories } in categories" :key="key">
+        <h3 class="font-bold mb-4">{{ $t(`categories.${key}.label`) }}</h3>
         <ul>
-          <SfListItem
-            v-for="{ key: subcategoryKey, link } in subcategories"
-            :key="subcategoryKey"
-            class="py-2 !bg-transparent typography-text-sm"
-          >
+          <li v-for="{ key: subcategoryKey, link } in subcategories" :key="subcategoryKey">
             <SfLink
               :tag="NuxtLink"
-              class="router-link-active router-link-exact-active no-underline text-neutral-600 hover:underline hover:!text-neutral-900 active:underline active:!text-neutral-900"
+              class="text-neutral-400 hover:text-white"
               variant="secondary"
-              :to="localePath(link)"
+              :to="link"
             >
               {{ $t(`categories.${key}.subcategories.${subcategoryKey}`) }}
             </SfLink>
-          </SfListItem>
+          </li>
         </ul>
       </div>
+      <div>
+        <h3 class="font-bold mb-2">Sicher einkaufen</h3>
+        <img
+          src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/ssl-secure-connection.png"
+          alt="SSL Secure Connection"
+          class="w-[60px] md:w-[100px] h-auto"
+        />
+      </div>
     </div>
-    <hr />
-    <div class="bg-neutral-900" data-testid="section-bottom">
-      <div class="justify-end px-4 py-10 md:flex md:py-6 max-w-screen-3xl mx-auto">
-        <p class="flex items-center justify-center leading-5 text-center typography-text-sm text-white/50 md:ml-6">
-          {{ companyName }}
+
+    <!-- Zweite Zeile: Partner und Zahlungsarten -->
+    <div class="bg-white text-black py-8">
+      <div class="max-w-screen-xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-6 px-4 md:px-8">
+        <!-- Partner -->
+        <div>
+          <h3 class="font-bold mb-4 text-center md:text-left">Unsere Partner</h3>
+          <div class="flex justify-center md:justify-start space-x-4">
+            <img src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/idealo.png" alt="Idealo" class="h-20" />
+            <img src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/dhl.jpg" alt="DHL" class="h-20" />
+          </div>
+        </div>
+
+        <!-- Zahlungsarten -->
+        <div>
+          <h3 class="font-bold mb-4 text-center md:text-left">Zahlungsarten</h3>
+          <div class="flex justify-center md:justify-start space-x-4">
+            <img src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/icon_paypal.png" alt="PayPal" class="h-8" />
+            <img src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/icon_visa.png" alt="Visa" class="h-8" />
+            <img src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/icon_mastercard.png" alt="Mastercard" class="h-8" />
+            <img src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/icon_vorkasse.png" alt="Vorkasse" class="mx-auto" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dritte Zeile: Copyright und Firmenname -->
+    <div class="bg-gray-100 py-4">
+      <div class="max-w-screen-xl mx-auto text-center text-neutral-600">
+        <img
+          src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/logo/trekking-star-footer.png"
+          alt="Logo Footer"
+          class="h-12 mx-auto mb-5"
+        />
+        <p class="text-xs mb-1">
+          * Alle Preise inkl. gesetzl. Mehrwertsteuer zzgl. Versandkosten und ggf. Nachnahmegebühren, wenn nicht anders
+          beschrieben
         </p>
+        <p class="text-xs">Copyright © 2024 trekkingstar.de - Alle Rechte vorbehalten</p>
       </div>
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
-import { SfLink, SfListItem } from '@storefront-ui/vue';
-import { categories, companyName } from '~/mocks';
-import type { FooterProps } from './types';
+import { SfLink } from '@storefront-ui/vue';
+import { categories } from '~/mocks';
 
-const { simplifiedFooter = false } = defineProps<FooterProps>();
-
-const localePath = useLocalePath();
 const NuxtLink = resolveComponent('NuxtLink');
 </script>
