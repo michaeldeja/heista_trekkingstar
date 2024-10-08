@@ -6,7 +6,9 @@
       :style="{ transform: `translateX(-${currentSlide * 100}%)` }"
     >
       <div v-for="(slide, index) in slides" :key="index" class="slide min-w-full h-full">
-        <img :src="slide.image" :alt="slide.alt" class="w-full h-full object-cover" />
+        <NuxtLink :to="slide.link">
+          <img :src="slide.image" :alt="slide.alt" class="w-full h-full object-cover cursor-pointer" />
+        </NuxtLink>
       </div>
     </div>
 
@@ -20,14 +22,25 @@
         @click="goToSlide(index)"
       ></span>
     </div>
+
+    <!-- Navigation Pfeile -->
+    <div class="absolute inset-0 flex justify-between items-center pointer-events-none">
+      <button class="pointer-events-auto p-2 bg-gray-800 text-white" @click="prevSlide">←</button>
+      <button class="pointer-events-auto p-2 bg-gray-800 text-white" @click="nextSlide">→</button>
+    </div>
   </div>
 
   <!-- Hersteller Icons Sektion -->
   <div class="w-full bg-gray-200 py-7">
     <div class="max-w-[90%] mx-auto flex justify-between items-center">
-      <div v-for="(icon, index) in manufacturerIcons" :key="index" class="flex items-center justify-center">
-        <img :src="icon.src" :alt="icon.alt" class="h-12 w-auto" />
-      </div>
+      <NuxtLink
+        v-for="(icon, index) in manufacturerIcons"
+        :key="index"
+        :to="icon.link"
+        class="flex items-center justify-center"
+      >
+        <img :src="icon.src" :alt="icon.alt" class="h-12 w-auto cursor-pointer" />
+      </NuxtLink>
     </div>
   </div>
 
@@ -35,88 +48,102 @@
   <div class="max-w-screen-lg mx-auto py-12">
     <!-- Erste Zeile: Damen und Herren (volle Höhe) -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-      <div class="text-center border p-6 h-[400px]">
-        <img
-          src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/damen.png"
-          alt="Damen Mode"
-          class="mx-auto mb-4 h-60"
-        />
-        <h3 class="font-bold text-3xl">FASHION-TRENDS</h3>
-        <p>FÜR DAMEN</p>
-      </div>
-      <div class="text-center border p-6 h-[400px]">
-        <img
-          src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/herren.png"
-          alt="Herren Mode"
-          class="mx-auto mb-4 h-60"
-        />
-        <h3 class="font-bold text-3xl">AKTUELLE MODE</h3>
-        <p>FÜR HERREN</p>
-      </div>
+      <NuxtLink to="/damen/bekleidung">
+        <div class="text-center border p-6 h-[400px]">
+          <img
+            src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/damen.png"
+            alt="Damen Mode"
+            class="mx-auto mb-4 h-60"
+          />
+          <h3 class="font-bold text-3xl">FASHION-TRENDS</h3>
+          <p>FÜR DAMEN</p>
+        </div>
+      </NuxtLink>
+      <NuxtLink to="/bekleidung/herren">
+        <div class="text-center border p-6 h-[400px]">
+          <img
+            src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/herren.png"
+            alt="Herren Mode"
+            class="mx-auto mb-4 h-60"
+          />
+          <h3 class="font-bold text-3xl">AKTUELLE MODE</h3>
+          <p>FÜR HERREN</p>
+        </div>
+      </NuxtLink>
     </div>
 
     <!-- Zweite Zeile: Rucksack und Ranzen (Bild links, Text rechts) -->
     <div class="grid grid-cols-2 gap-6 mb-6">
-      <div class="border p-6 h-[150px] flex items-center">
-        <img
-          src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/rucksack.png"
-          alt="Rucksack"
-          class="h-30 mr-4"
-        />
-        <div>
-          <h3 class="font-bold text-xl">DEN RICHTIGEN RUCKSACK</h3>
-          <p>FÜR JEDEN AUSFLUG FINDEN</p>
+      <NuxtLink to="/ausruestung/rucksaecke">
+        <div class="border p-6 h-[150px] flex items-center">
+          <img
+            src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/rucksack.png"
+            alt="Rucksack"
+            class="h-30 mr-4"
+          />
+          <div>
+            <h3 class="font-bold text-xl">DEN RICHTIGEN RUCKSACK</h3>
+            <p>FÜR JEDEN AUSFLUG FINDEN</p>
+          </div>
         </div>
-      </div>
-      <div class="border p-6 h-[150px] flex items-center">
-        <img
-          src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/ranzen.png"
-          alt="Ranzen"
-          class="h-30 mr-4"
-        />
-        <div>
-          <h3 class="font-bold text-xl">RUCKSÄCKE & RANZEN</h3>
-          <p>FÜR SCHÜLER JEDEN ALTERS</p>
+      </NuxtLink>
+      <NuxtLink to="/kinder/schule">
+        <div class="border p-6 h-[150px] flex items-center">
+          <img
+            src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/ranzen.png"
+            alt="Ranzen"
+            class="h-30 mr-4"
+          />
+          <div>
+            <h3 class="font-bold text-xl">RUCKSÄCKE & RANZEN</h3>
+            <p>FÜR SCHÜLER JEDEN ALTERS</p>
+          </div>
         </div>
-      </div>
+      </NuxtLink>
     </div>
 
     <!-- Dritte Zeile: Fahrradtaschen und Zelte (Bild rechts, Text links) -->
     <div class="grid grid-cols-2 gap-6 mb-6">
-      <div class="border p-6 h-[150px] flex items-center justify-between">
-        <div>
-          <h3 class="font-bold text-xl">WASSERDICHTE</h3>
-          <p>FAHRRADTASCHEN</p>
+      <NuxtLink to="/ausruestung/bike">
+        <div class="border p-6 h-[150px] flex items-center justify-between">
+          <div>
+            <h3 class="font-bold text-xl">WASSERDICHTE</h3>
+            <p>FAHRRADTASCHEN</p>
+          </div>
+          <img
+            src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/fahrrad.png"
+            alt="Fahrradtaschen"
+            class="h-36 ml-4"
+          />
         </div>
-        <img
-          src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/fahrrad.png"
-          alt="Fahrradtaschen"
-          class="h-36 ml-4"
-        />
-      </div>
-      <div class="border p-6 h-[150px] flex items-center justify-between">
-        <div>
-          <h3 class="font-bold text-xl">ZELTE & ZUBEHÖR</h3>
-          <p>FÜR DEINEN URLAUB</p>
+      </NuxtLink>
+      <NuxtLink to="/zelte">
+        <div class="border p-6 h-[150px] flex items-center justify-between">
+          <div>
+            <h3 class="font-bold text-xl">ZELTE & ZUBEHÖR</h3>
+            <p>FÜR DEINEN URLAUB</p>
+          </div>
+          <img
+            src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/zelt.png"
+            alt="Zelte"
+            class="h-36 ml-4"
+          />
         </div>
-        <img
-          src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/zelt.png"
-          alt="Zelte"
-          class="h-36 ml-4"
-        />
-      </div>
+      </NuxtLink>
     </div>
 
     <!-- Vierte Zeile: Sale und Rabatt (breiter Kasten mit Bild) -->
     <div class="grid grid-cols-1">
-      <div class="relative border text-center">
-        <img
-          src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/sale.png"
-          alt="Rabatt Banner"
-          class="w-full h-[150px] object-cover"
-        />
-        <div class="absolute inset-0 flex flex-col items-center justify-center bg-opacity-50 p-10"></div>
-      </div>
+      <NuxtLink to="/sale">
+        <div class="relative border text-center">
+          <img
+            src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/sale.png"
+            alt="Rabatt Banner"
+            class="w-full h-[150px] object-cover"
+          />
+          <div class="absolute inset-0 flex flex-col items-center justify-center bg-opacity-50 p-10"></div>
+        </div>
+      </NuxtLink>
     </div>
   </div>
 </template>
@@ -129,49 +156,81 @@ const currentSlide = ref(0);
 const intervalTime = 5000;
 let sliderInterval;
 
-// Dummy-Daten für den Slider
+// Slider-Daten (extern, z.B. Plenty Markets URLs verwenden)
 const slides = ref([
-  { image: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/slider/camel.png', alt: 'Slide 1' },
-  { image: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/slider/derbe.png', alt: 'Slide 2' },
-  { image: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/slider/didrikson.png', alt: 'Slide 3' },
-  { image: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/slider/fire_and_ice.png', alt: 'Slide 4' },
-  { image: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/slider/ortlieb.png', alt: 'Slide 5' },
-  { image: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/slider/pme.png', alt: 'Slide 6' },
+  {
+    image: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/slider/camel.png',
+    alt: 'Camel Active',
+    link: '/hersteller/camel-active',
+  },
+  {
+    image: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/slider/derbe.png',
+    alt: 'Derbe',
+    link: '/hersteller/derbe',
+  },
+  {
+    image: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/slider/didrikson.png',
+    alt: 'Didrikson',
+    link: '/hersteller/didrikson',
+  },
+  {
+    image: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/slider/fire_and_ice.png',
+    alt: 'Fire & Ice',
+    link: '/hersteller/fire-and-ice',
+  },
+  {
+    image: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/slider/ortlieb.png',
+    alt: 'Ortlieb',
+    link: '/hersteller/ortlieb',
+  },
+  {
+    image: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/slider/pme.png',
+    alt: 'PME Legend',
+    link: '/hersteller/pme-legend',
+  },
 ]);
 
-// Dummy-Daten für Hersteller-Icons
+// Hersteller-Icons (extern, z.B. Plenty Markets URLs)
 const manufacturerIcons = ref([
   {
     src: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/icons/bogner5b55aee43f942_200x200.png',
-    alt: 'Hersteller 1',
+    alt: 'Bogner',
+    link: '/hersteller/bogner',
   },
   {
     src: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/icons/camel_active5b55aecd64a6c_200x200.png',
-    alt: 'Hersteller 2',
+    alt: 'Camel Active',
+    link: '/hersteller/camel-active',
   },
   {
     src: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/icons/didriksonsOpv2W3wR26MA1.png',
-    alt: 'Hersteller 3',
+    alt: 'Didriksons',
+    link: '/hersteller/didrikson',
   },
   {
     src: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/icons/ortlieb5b55aec5a72af_200x200.png',
-    alt: 'Hersteller 4',
+    alt: 'Ortlieb',
+    link: '/hersteller/ortlieb',
   },
   {
     src: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/icons/teva5b55aebf61fc8_200x200.png',
-    alt: 'Hersteller 5',
+    alt: 'Teva',
+    link: '/hersteller/teva',
   },
   {
     src: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/icons/satch5b55aeed5fa78_200x200.png',
-    alt: 'Hersteller 6',
+    alt: 'Satch',
+    link: '/hersteller/satch',
   },
   {
     src: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/icons/derbe5b55af34cee34_200x200.png',
-    alt: 'Hersteller 7',
+    alt: 'Derbe',
+    link: '/hersteller/derbe',
   },
   {
     src: 'https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/icons/deuter5b55aebe4581f_200x200.png',
-    alt: 'Hersteller 8',
+    alt: 'Deuter',
+    link: '/hersteller/deuter',
   },
 ]);
 
@@ -185,6 +244,16 @@ onMounted(() => {
 onUnmounted(() => {
   clearInterval(sliderInterval);
 });
+
+// Vorheriges Bild
+const prevSlide = () => {
+  currentSlide.value = (currentSlide.value - 1 + slides.value.length) % slides.value.length;
+};
+
+// Nächstes Bild
+const nextSlide = () => {
+  currentSlide.value = (currentSlide.value + 1) % slides.value.length;
+};
 
 // Bestimmten Slide anzeigen
 const goToSlide = (index) => {
@@ -209,7 +278,6 @@ const goToSlide = (index) => {
   height: 100%;
 }
 
-/* Paginierungspunkte */
 .pagination-dots {
   position: absolute;
   bottom: 20px;
@@ -228,5 +296,18 @@ const goToSlide = (index) => {
 
 .pagination-dots span.active {
   background-color: #ff7f00; /* Orange für den aktiven Punkt */
+}
+
+button {
+  background-color: #ff7f00;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff5900;
 }
 </style>

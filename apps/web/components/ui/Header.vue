@@ -102,14 +102,16 @@
         <!-- Logo und Suche zentriert -->
         <div class="flex items-center justify-center w-full">
           <!-- Logo -->
-          <div class="flex justify-center mr-8">
+          <div class="flex justify-center mr-10">
             <!-- Vergrößerter Abstand mit mr-8 -->
-            <NuxtImg
-              src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/logo/trekking-star.png"
-              alt="Trekking Star Logo"
-              class="w-[210px] h-[80px] py-2"
-              preload
-            />
+            <NuxtLink :to="localePath(paths.home)" aria-label="Zur Startseite">
+              <NuxtImg
+                src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/logo/trekking-star.png"
+                alt="Trekking Star Logo"
+                class="w-[210px] h-[80px] py-2"
+                preload
+              />
+            </NuxtLink>
           </div>
 
           <!-- Verkleinerte Suchleiste -->
@@ -132,44 +134,45 @@
               </template>
             </UiButton>
 
-            <!-- Wunschliste -->
-            <UiButton
-              class="group relative text-black hover:text-orange-500 active:text-orange-700 rounded-md"
-              :tag="NuxtLink"
-              :to="localePath(paths.wishlist)"
-              :aria-label="t('numberInWishlist', { count: wishlistItemIds.length })"
-              variant="tertiary"
-              square
-              data-testid="wishlist-page-navigation"
-            >
-              <template #prefix>
-                <SfIconFavorite />
-                <SfBadge
-                  :content="wishlistItemIds.length"
-                  class="outline outline-primary-500 bg-white !text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-700 flex justify-center text-xs !leading-3"
-                  data-testid="wishlist-badge"
-                />
-              </template>
-            </UiButton>
+           <!-- Wunschliste -->
+<UiButton
+  class="group relative text-orange-500 hover:text-black active:text-black rounded-md"
+  :tag="NuxtLink"
+  :to="localePath(paths.wishlist)"
+  :aria-label="t('numberInWishlist', { count: wishlistItemIds.length })"
+  variant="tertiary"
+  square
+  data-testid="wishlist-page-navigation"
+>
+  <template #prefix>
+    <SfIconFavorite class="text-orange-500 group-hover:text-black group-active:text-black" />
+    <SfBadge
+      :content="wishlistItemIds.length"
+      class="outline outline-orange-500 bg-white !text-orange-500 group-hover:!outline-black group-hover:!text-black group-active:!outline-black group-active:!text-black flex justify-center text-xs !leading-3"
+      data-testid="wishlist-badge"
+    />
+  </template>
+</UiButton>
 
-            <!-- Warenkorb -->
-            <UiButton
-              class="group relative text-black hover:text-orange-500 active:text-orange-700 rounded-md"
-              :tag="NuxtLink"
-              :to="localePath(paths.cart)"
-              :aria-label="t('numberInCart', { count: cartItemsCount })"
-              variant="tertiary"
-              square
-            >
-              <template #prefix>
-                <SfIconShoppingCart />
-                <SfBadge
-                  :content="cartItemsCount"
-                  class="outline outline-primary-500 bg-white !text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-700 flex justify-center text-xs !leading-3"
-                  data-testid="cart-badge"
-                />
-              </template>
-            </UiButton>
+<!-- Warenkorb -->
+<UiButton
+  class="group relative text-orange-500 hover:text-black active:text-black rounded-md"
+  :tag="NuxtLink"
+  :to="localePath(paths.cart)"
+  :aria-label="t('numberInCart', { count: cartItemsCount })"
+  variant="tertiary"
+  square
+>
+  <template #prefix>
+    <SfIconShoppingCart class="text-orange-500 group-hover:text-black group-active:text-black" />
+    <SfBadge
+      :content="cartItemsCount"
+      class="outline outline-orange-500 bg-white !text-orange-500 group-hover:!outline-black group-hover:!text-black group-active:!outline-black group-active:!text-black flex justify-center text-xs !leading-3"
+      data-testid="cart-badge"
+    />
+  </template>
+</UiButton>
+
           </div>
         </div>
       </div>

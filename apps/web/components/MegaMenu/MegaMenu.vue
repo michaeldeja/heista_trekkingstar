@@ -30,7 +30,7 @@
 
     <nav v-if="viewport.isGreaterOrEquals('lg')" ref="floatingRef">
       <ul
-        class="flex px-6 py-2 bg-white border-b border-b-neutral-200 border-b-solid"
+        class="flex justify-center px-6 py-2 bg-white border-b border-b-neutral-200 border-b-solid"
         @blur="
           (event) => {
             if (!(event.currentTarget as Element).contains(event.relatedTarget as Element)) {
