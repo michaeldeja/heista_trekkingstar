@@ -853,5 +853,54 @@
   },
   "addressContainer": {
     "sameAsShippingAddress": "Entspricht der Lieferadresse"
+  },
+  
+    "header": {
+      "freeShipping": "Versandkostenfrei",
+      "shippingThreshold": "ab 39,95 € in DE & AT",
+      "freeReturns": "Kostenfreie Rücksendung",
+      "returnPolicy": "30 Tage Rückgaberecht",
+      "returnDays": "30 Tage",
+      "paymentOption1": "Rechnungskauf",
+      "paymentOption2": "Ratenkauf",
+      "positiveReviews": "Über 100.000",
+      "reviewCount": "positive Bewertungen",
+      "phoneNumber": "+49 (0)209 - 728 47",
+      "phoneHours": "(Mo - Fr: 8:00 - 16:30 Uhr)"
+    }, 
+    "footer": {
+    "trekkingStar": {
+      "title": "Trekking Star",
+      "aboutUs": "Über uns",
+      "jobs": "Jobs"
+    },
+    "shopService": {
+      "title": "Shop Service",
+      "contact": "Kontakt",
+      "returns": "Rücksendungen",
+      "shippingInfo": "Zahlarten und Versandinformationen"
+    },
+    "information": {
+      "title": "Informationen",
+      "ourBrands": "Unsere Marken",
+      "sitemap": "Sitemap"
+    },
+    "legal": {
+      "title": "Rechtliches",
+      "terms": "AGB",
+      "cancellationRights": "Widerrufsbelehrung",
+      "privacyPolicy": "Datenschutz",
+      "impressum": "Impressum"
+    },
+    "secureShopping": "Sicher einkaufen",
+    "partner": {
+      "title": "Unsere Partner"
+    },
+    "paymentMethods": {
+      "title": "Zahlungsarten"
+    },
+    "copyrightText": "* Alle Preise inkl. gesetzl. Mehrwertsteuer zzgl. Versandkosten und ggf. Nachnahmegebühren, wenn nicht anders beschrieben",
+    "rightsReserved": "Copyright © 2024 trekkingstar.de - Alle Rechte vorbehalten"
   }
+  
 }
