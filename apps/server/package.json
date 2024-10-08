@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "nodemon",
     "start": "nodemon",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
+    "lint": "eslint . --no-cache",
+    "lint:fix": "eslint . --fix --no-cache",
     "build": "tsup --minify"
   },
   "dependencies": {

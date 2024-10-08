@@ -103,10 +103,18 @@
         <!-- Logo und Suche zentriert -->
         <div class="flex items-center justify-center w-full">
           <!-- Logo -->
+<<<<<<< HEAD
           <div class="flex justify-center mr-8">
             <NuxtLink :to="localePath(paths.home)">
               <NuxtImg
                 :src="header.logo"
+=======
+          <div class="flex justify-center mr-10">
+            <!-- Vergrößerter Abstand mit mr-8 -->
+            <NuxtLink :to="localePath(paths.home)" aria-label="Zur Startseite">
+              <NuxtImg
+                src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/logo/trekking-star.png"
+>>>>>>> 50b41552c3054d835612e78715c819591b41d786
                 alt="Trekking Star Logo"
                 class="w-[210px] h-[80px] py-2"
                 preload
@@ -134,6 +142,7 @@
               </template>
             </UiButton>
 
+<<<<<<< HEAD
             <!-- Wunschliste -->
             <UiButton
               class="group relative text-orange-500 hover:text-black hover:bg-orange-500 active:text-black rounded-md"
@@ -172,6 +181,47 @@
                 />
               </template>
             </UiButton>
+=======
+           <!-- Wunschliste -->
+<UiButton
+  class="group relative text-orange-500 hover:text-black active:text-black rounded-md"
+  :tag="NuxtLink"
+  :to="localePath(paths.wishlist)"
+  :aria-label="t('numberInWishlist', { count: wishlistItemIds.length })"
+  variant="tertiary"
+  square
+  data-testid="wishlist-page-navigation"
+>
+  <template #prefix>
+    <SfIconFavorite class="text-orange-500 group-hover:text-black group-active:text-black" />
+    <SfBadge
+      :content="wishlistItemIds.length"
+      class="outline outline-orange-500 bg-white !text-orange-500 group-hover:!outline-black group-hover:!text-black group-active:!outline-black group-active:!text-black flex justify-center text-xs !leading-3"
+      data-testid="wishlist-badge"
+    />
+  </template>
+</UiButton>
+
+<!-- Warenkorb -->
+<UiButton
+  class="group relative text-orange-500 hover:text-black active:text-black rounded-md"
+  :tag="NuxtLink"
+  :to="localePath(paths.cart)"
+  :aria-label="t('numberInCart', { count: cartItemsCount })"
+  variant="tertiary"
+  square
+>
+  <template #prefix>
+    <SfIconShoppingCart class="text-orange-500 group-hover:text-black group-active:text-black" />
+    <SfBadge
+      :content="cartItemsCount"
+      class="outline outline-orange-500 bg-white !text-orange-500 group-hover:!outline-black group-hover:!text-black group-active:!outline-black group-active:!text-black flex justify-center text-xs !leading-3"
+      data-testid="cart-badge"
+    />
+  </template>
+</UiButton>
+
+>>>>>>> 50b41552c3054d835612e78715c819591b41d786
           </div>
         </div>
       </div>

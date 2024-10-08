@@ -16,7 +16,7 @@ module.exports = {
         'paths': [{
           name: '@storefront-ui/vue',
           importNames: ['SfButton'],
-          message: `SfButton doesn't conform to the app's design system. Use UiButton instead.`
+          message: `SfButton doesn't conform to the app's design system. Use UiButton instead.`,
         }],
       },
     ],
@@ -29,6 +29,7 @@ module.exports = {
     'sonarjs/no-duplicate-string': 'off',
     '@typescript-eslint/no-empty-function': ['error', { allow: ['arrowFunctions'] }],
     '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/no-explicit-any': 'off', // Deaktiviert die Regel für die Verwendung von "any"
     'vue/component-tags-order': [
       'error',
       {
@@ -40,7 +41,7 @@ module.exports = {
       ignoreStrings: true,
       ignoreUrls: true,
       ignoreTemplateLiterals: true,
-      ignoreHTMLAttributeValues: true
+      ignoreHTMLAttributeValues: true,
     }],
     'vue/multi-word-component-names': 'off',
     'vue/no-setup-props-destructure': 'off',
@@ -53,6 +54,6 @@ module.exports = {
       rules: {
         'no-console': 'off',
       },
-    }
-  ]
+    },
+  ],
 };
