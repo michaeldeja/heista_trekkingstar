@@ -17,10 +17,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ES2019",
-    "types": [
-      "@types/express",
-      "jest"
-    ],
+    "types": ["@types/express", "jest"],
     "rootDir": ".",
     "outDir": "lib"
   },

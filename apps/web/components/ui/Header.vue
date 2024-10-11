@@ -173,7 +173,9 @@
               {{ user.user?.firstName }}
             </UiButton>
           </template>
-          <ul class="group relative text-orange-500 hover:text-black hover:bg-orange-500 active:text-black rounded-md min-w-[152px] py-2">
+          <ul
+            class="group relative text-orange-500 hover:text-black hover:bg-orange-500 active:text-black rounded-md min-w-[152px] py-2"
+          >
             <li v-for="({ label, link }, labelIndex) in accountDropdown" :key="`label-${labelIndex}`">
               <template v-if="label === t('account.logout')">
                 <UiDivider class="my-2" />

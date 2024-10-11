@@ -14,11 +14,21 @@ module.exports = {
     'no-restricted-imports': [
       'error',
       {
+<<<<<<< HEAD
         'paths': [{
           name: '@storefront-ui/vue',
           importNames: ['SfButton'],
           message: `SfButton doesn't conform to the app's design system. Use UiButton instead.`,
         }],
+=======
+        paths: [
+          {
+            name: '@storefront-ui/vue',
+            importNames: ['SfButton'],
+            message: `SfButton doesn't conform to the app's design system. Use UiButton instead.`,
+          },
+        ],
+>>>>>>> ab4a41ac (20241011)
       },
     ],
     'etc/no-deprecated': 'off',
@@ -37,6 +47,7 @@ module.exports = {
         order: ['template', 'script', 'style'],
       },
     ],
+<<<<<<< HEAD
     'vue/max-len': ['warn', {
       code: 120,
       ignoreStrings: true,
@@ -44,6 +55,18 @@ module.exports = {
       ignoreTemplateLiterals: true,
       ignoreHTMLAttributeValues: true,
     }],
+=======
+    'vue/max-len': [
+      'warn',
+      {
+        code: 120,
+        ignoreStrings: true,
+        ignoreUrls: true,
+        ignoreTemplateLiterals: true,
+        ignoreHTMLAttributeValues: true,
+      },
+    ],
+>>>>>>> ab4a41ac (20241011)
     'vue/multi-word-component-names': 'off',
     'vue/no-setup-props-destructure': 'off',
     'vue/singleline-html-element-content-newline': 'off',

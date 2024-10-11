@@ -157,12 +157,14 @@ const validationSchema = toTypedSchema(
     email: string().email(t('errorMessages.email.valid')).required(t('errorMessages.email.required')).default(''),
     message: string().required(t('errorMessages.contact.messageRequired')).default(''),
     subject: string().required(t('errorMessages.requiredField')).default(''),
-    orderId: string().required(t('errorMessages.requiredField')).test((value, context) => {
-      if (value && /\D/.test(value)) {
-        return context.createError({ message: t('errorMessages.wholeNumber') });
-      }
-      return true;
-    }),
+    orderId: string()
+      .required(t('errorMessages.requiredField'))
+      .test((value, context) => {
+        if (value && /\D/.test(value)) {
+          return context.createError({ message: t('errorMessages.wholeNumber') });
+        }
+        return true;
+      }),
     privacyPolicy: boolean().oneOf([true], t('errorMessages.contact.termsRequired')).default(false),
     turnstile: string().required(t('errorMessages.contact.turnstileRequired')).default(''),
   }),

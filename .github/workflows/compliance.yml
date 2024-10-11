@@ -1,13 +1,13 @@
 name: Compliance
 on:
   pull_request:
-    types: [ opened, edited, synchronize, reopened ]
+    types: [opened, edited, synchronize, reopened]
 jobs:
   label:
     name: Apply conventional release labels
     runs-on: ubuntu-latest
     steps:
-    - uses: bcoe/conventional-release-labels@v1
+      - uses: bcoe/conventional-release-labels@v1
   changelog:
     name: Changelog updated
     needs: label

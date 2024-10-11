@@ -27,6 +27,6 @@ jobs:
         id: upload
         uses: JantHsueh/upload-file-action@1.0
         with:
-          url: "https://pwapublish.plentysystems.com/storeDefaultApplication"
+          url: 'https://pwapublish.plentysystems.com/storeDefaultApplication'
           forms: '{ "token": "${{ secrets.SUPPLIER_TOKEN }}" }'
           fileForms: '{ "file": "pwa.tar.gz" }'

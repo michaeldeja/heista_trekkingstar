@@ -67,14 +67,13 @@
     </div>
   </div>
 </template>
-  
-  <script setup>
+
+<script setup>
 import SidebarNavigation from '@/components/SidebarNavigation.vue'; // Sidebar Komponente importieren
 </script>
-  
-  <style scoped>
+
+<style scoped>
 .container {
   max-width: 1200px;
 }
 </style>
-  
