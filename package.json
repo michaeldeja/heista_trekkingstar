@@ -7,7 +7,6 @@
       "apps/*"
     ],
     "scripts": {
-<<<<<<< HEAD
       "prepare": "is-ci || husky install",
       "update:sdk": "yarn up @plentymarkets/shop-api",
       "setup": "yarn && yarn build && yarn dev",
@@ -30,7 +29,6 @@
       "test:cypress": "concurrently -k -s=first \"yarn wait-on http-get://localhost:3000 && yarn turbo:disable-telemetry && turbo run test:cypress\" \"yarn start\"",
       "test:cypress-dev": "concurrently -k -s=first \"yarn wait-on http-get://localhost:3000 && yarn turbo:disable-telemetry && turbo run test:cypress-dev\" \"yarn dev\"",
       "lhci:mobile": "lhci autorun"
-=======
         "prepare": "is-ci || husky install",
         "update:sdk": "yarn up @plentymarkets/shop-api",
         "setup": "yarn && yarn build && yarn dev",
@@ -41,6 +39,8 @@
         "start": "yarn turbo:disable-telemetry && turbo run start",
         "lint": "NODE_OPTIONS=--max-old-space-size=4096 yarn turbo:disable-telemetry && turbo run lint -- --no-cache",
         "lint:fix": "NODE_OPTIONS=--max-old-space-size=4096 yarn turbo:disable-telemetry && turbo run lint:fix -- --no-cache",
+        "lint": "NODE_OPTIONS=--max-old-space-size=4096 yarn turbo:disable-telemetry && turbo run lint",
+        "lint:fix": "NODE_OPTIONS=--max-old-space-size=4096 yarn turbo:disable-telemetry && turbo run lint:fix",
         "format": "prettier --check \"**/*.{ts,vue,css,scss,md}\"",
         "format:fix": "prettier --write \"**/*.{ts,vue,css,scss,md}\"",
         "clean": "npx rimraf ./**/node_modules && rm yarn.lock",
@@ -53,7 +53,6 @@
         "test:cypress": "concurrently -k -s=first \"yarn wait-on http-get://localhost:3000 && yarn turbo:disable-telemetry && turbo run test:cypress\" \"yarn start\"",
         "test:cypress-dev": "concurrently -k -s=first \"yarn wait-on http-get://localhost:3000 && yarn turbo:disable-telemetry && turbo run test:cypress-dev\" \"yarn dev\"",
         "lhci:mobile": "lhci autorun"
->>>>>>> 50b41552c3054d835612e78715c819591b41d786
     },
     "dependencies": {
       "@plentymarkets/shop-api": "^0.62.0",
@@ -68,7 +67,6 @@
       "tw-elements": "^2.0.0"
     },
     "devDependencies": {
-<<<<<<< HEAD
       "@commitlint/cli": "^17.8.1",
       "@commitlint/config-conventional": "^17.8.1",
       "@lhci/cli": "^0.14.0",
@@ -98,7 +96,6 @@
       "typescript": "5.1.x",
       "vitest": "^1.6.0",
       "wait-on": "^7.2.0"
-=======
         "@commitlint/cli": "^17.8.1",
         "@commitlint/config-conventional": "^17.8.1",
         "@eslint/js": "^9.12.0",
@@ -134,7 +131,6 @@
         "typescript-eslint": "^8.8.1",
         "vitest": "^1.6.0",
         "wait-on": "^7.2.0"
->>>>>>> 50b41552c3054d835612e78715c819591b41d786
     },
     "engines": {
       "yarn": ">=3.6.1",
