@@ -160,7 +160,16 @@
 </template>
 
 <script setup lang="ts">
-import { SfLink } from '@storefront-ui/vue';
+import { SfLink, SfListItem } from '@storefront-ui/vue';
+import { categories } from '~/mocks';
+import type { FooterProps } from './types';
 
+const storename: string = useRuntimeConfig().public.storename;
+
+const companyName: string = `© ${storename} ${new Date().getFullYear()}`;
+
+const { simplifiedFooter = false } = defineProps<FooterProps>();
+
+const localePath = useLocalePath();
 const NuxtLink = resolveComponent('NuxtLink');
 </script>

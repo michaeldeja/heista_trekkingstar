@@ -133,6 +133,8 @@
               :content="wishlistItemIds.length"
               class="outline outline-orange-500 bg-white !text-orange-500 group-hover:!outline-black group-hover:!text-black group-active:!outline-black group-active:!text-black flex justify-center text-xs !leading-3"
               data-testid="wishlist-badge"
+              placement="top-right"
+              :max="99"
             />
           </template>
         </UiButton>
@@ -153,6 +155,8 @@
               :content="cartItemsCount"
               class="outline outline-orange-500 bg-white !text-orange-500 group-hover:!outline-black group-hover:!text-black group-active:!outline-black group-active:!text-black flex justify-center text-xs !leading-3"
               data-testid="cart-badge"
+              placement="top-right"
+              :max="99"
             />
           </template>
         </UiButton>
