@@ -1,7 +1,5 @@
 import dotenv from 'dotenv';
 import * as path from 'path';
-import { Request, Response } from 'express'; // Import der Typen aus express
-import { AxiosError } from 'axios'; // Falls der Fehler von Axios stammt
 
 dotenv.config({
   path: path.resolve(__dirname, '../web/.env'),
@@ -17,12 +15,13 @@ const config = {
           securityToken: process.env.API_SECURITY_TOKEN ?? '',
         },
       },
-      errorHandler: (error: AxiosError, req: Request, res: Response) => {
-        // Verwende AxiosError für den Fehler und die Request/Response Typen von Express
+      errorHandler: (error: any, req: any, res: any) => {
+        // override the default error handler to preserve the original error response
+        // https://docs.alokai.com/middleware/guides/custom-error-handler#customize-the-error-handler
         if (error?.response?.status) {
           res.status(error.response.status).send(error.response?.data);
         } else {
-          res.status(500).send(error.message); // Füge 'message' hinzu, da 'error' ein Objekt ist
+          res.status(500).send(error);
         }
       },
     },

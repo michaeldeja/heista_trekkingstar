@@ -1,20 +1,20 @@
 <template>
   <footer class="bg-black text-white">
     <!-- Erste Zeile: Kategorien -->
-    <div class="max-w-screen-xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-6 py-8 px-4 md:px-8">
+    <div class="max-w-screen-3xl px-3 md:px-6 lg:px-10 mx-auto grid grid-cols-2 md:grid-cols-5 gap-6 py-8">
       
       <!-- Trekking Star -->
       <div>
         <h3 class="font-bold mb-4">{{ $t('footer.trekkingStar.title') }}</h3>
         <ul>
           <li>
-            <SfLink :tag="NuxtLink" class="text-neutral-300 hover:text-white" :to="'/about-us'">
+            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline no-underline" :to="'/about-us'">
               {{ $t('footer.trekkingStar.aboutUs') }}
             </SfLink>
           </li>
           <li>
-            <SfLink :tag="NuxtLink" class="text-neutral-300 hover:text-white" :to="'/jobs'">
-              {{ $t('footer.trekkingStar.jobs') }}
+            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline" :to="'/jobs'">
+              {{ $t('footer.trekkingStar.jobs') }} 
             </SfLink>
           </li>
         </ul>
@@ -25,17 +25,17 @@
         <h3 class="font-bold mb-4">{{ $t('footer.shopService.title') }}</h3>
         <ul>
           <li>
-            <SfLink :tag="NuxtLink" class="text-neutral-300 hover:text-white" :to="'/contact'">
+            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline" :to="'/contact'">
               {{ $t('footer.shopService.contact') }}
             </SfLink>
           </li>
           <li>
-            <SfLink :tag="NuxtLink" class="text-neutral-300 hover:text-white" :to="'/retoure'">
+            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline" :to="'/retoure'">
               {{ $t('footer.shopService.returns') }}
             </SfLink>
           </li>
           <li>
-            <SfLink :tag="NuxtLink" class="text-neutral-300 hover:text-white" :to="'/shipping'">
+            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline" :to="'/shipping'">
               {{ $t('footer.shopService.shippingInfo') }}
             </SfLink>
           </li>
@@ -47,12 +47,12 @@
         <h3 class="font-bold mb-4">{{ $t('footer.information.title') }}</h3>
         <ul>
           <li>
-            <SfLink :tag="NuxtLink" class="text-neutral-300 hover:text-white" :to="'/marken'">
+            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline" :to="'/marken'">
               {{ $t('footer.information.ourBrands') }}
             </SfLink>
           </li>
           <li>
-            <SfLink :tag="NuxtLink" class="text-neutral-300 hover:text-white" :to="'/sitemap'">
+            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline" :to="'/sitemap'">
               {{ $t('footer.information.sitemap') }}
             </SfLink>
           </li>
@@ -64,22 +64,22 @@
         <h3 class="font-bold mb-4">{{ $t('footer.legal.title') }}</h3>
         <ul>
           <li>
-            <SfLink :tag="NuxtLink" class="text-neutral-300 hover:text-white" :to="'/terms-and-conditions'">
+            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline" :to="'/terms-and-conditions'">
               {{ $t('footer.legal.terms') }}
             </SfLink>
           </li>
           <li>
-            <SfLink :tag="NuxtLink" class="text-neutral-300 hover:text-white" :to="'/cancellation-rights'">
+            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline" :to="'/cancellation-rights'">
               {{ $t('footer.legal.cancellationRights') }}
             </SfLink>
           </li>
           <li>
-            <SfLink :tag="NuxtLink" class="text-neutral-300 hover:text-white" :to="'/datenschutz'">
+            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline" :to="'/datenschutz'">
               {{ $t('footer.legal.privacyPolicy') }}
             </SfLink>
           </li>
           <li>
-            <SfLink :tag="NuxtLink" class="text-neutral-300 hover:text-white" :to="'/impressum'">
+            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline" :to="'/impressum'">
               {{ $t('footer.legal.impressum') }}
             </SfLink>
           </li>
@@ -99,7 +99,7 @@
 
     <!-- Zweite Zeile: Partner und Zahlungsarten -->
     <div class="bg-white text-black py-8">
-      <div class="max-w-screen-xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-6 px-4 md:px-8">
+      <div class="max-w-screen-3xl px-3 md:px-6 lg:px-10 mx-auto grid grid-cols-2 md:grid-cols-3 gap-6 ">
         <!-- Partner -->
         <div>
           <h3 class="font-bold mb-4 text-center md:text-left">{{ $t('footer.partner.title') }}</h3>
@@ -144,7 +144,7 @@
 
     <!-- Dritte Zeile: Copyright und Firmenname -->
     <div class="bg-gray-100 py-4">
-      <div class="max-w-screen-xl mx-auto text-center text-neutral-600">
+      <div class="max-w-screen-3xl px-3 md:px-6 lg:px-10 mx-auto text-center text-neutral-600">
         <img
           src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/logo/trekking-star-footer.png"
           alt="Logo Footer"
