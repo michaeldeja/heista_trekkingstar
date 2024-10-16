@@ -67,14 +67,14 @@
         </section>
 
         <LazyCategoryEmptyState v-else />
-
+        <!--
         <div class="mt-4 mb-4 typography-text-xs flex gap-1" v-if="totalProducts > 0">
           <span>{{ $t('asterisk') }}</span>
           <span v-if="showNetPrices">{{ $t('itemExclVAT') }}</span>
           <span v-else>{{ $t('itemInclVAT') }}</span>
           <span>{{ $t('excludedShipping') }}</span>
         </div>
-
+        -->
          <UiPagination
           v-if="totalProducts > 0"
           :key="`${totalProducts}-${itemsPerPage}`"
