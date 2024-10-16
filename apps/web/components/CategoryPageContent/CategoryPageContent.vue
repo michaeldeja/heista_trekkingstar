@@ -66,20 +66,7 @@
           </NuxtLazyHydrate>
         </section>
 
-        <div v-else data-testid="category-empty-state" class="flex flex-col items-center md:mt-16">
-          <NuxtImg
-            src="/images/something-went-wrong.svg"
-            :alt="$t('emptyStateAltText')"
-            width="192"
-            height="192"
-            loading="lazy"
-          />
-          <p class="mt-8 font-medium">{{ $t('emptyStateText') }}</p>
-          <p class="mt-4">{{ $t('emptyStateText2') }}</p>
-          <UiButton :tag="NuxtLink" :to="localePath(paths.category)" variant="secondary" class="mt-4">
-            {{ $t('allProductsLinkText') }}
-          </UiButton>
-        </div>
+        <LazyCategoryEmptyState v-else />
 
         <div class="mt-4 mb-4 typography-text-xs flex gap-1" v-if="totalProducts > 0">
           <span>{{ $t('asterisk') }}</span>
@@ -88,7 +75,7 @@
           <span>{{ $t('excludedShipping') }}</span>
         </div>
 
-        <UiPagination
+         <UiPagination
           v-if="totalProducts > 0"
           :key="`${totalProducts}-${itemsPerPage}`"
           :current-page="getFacetsFromURL().page ?? 1"
@@ -104,11 +91,9 @@
 <script setup lang="ts">
 import { productGetters, productImageGetters } from '@plentymarkets/shop-api';
 import { SfIconTune, useDisclosure } from '@storefront-ui/vue';
-import { UiPagination } from '@storefront-ui/vue';
-import { useCategoryFilter, useModernImage } from '~/composables';
-import { paths } from '~/utils/paths';
+import { type CategoryPageContentProps } from '~/components/CategoryPageContent/types';
 
-const { title, totalProducts, itemsPerPage = 24, products = [] } = defineProps();
+const { title, totalProducts, itemsPerPage = 24, products = [] } = defineProps<CategoryPageContentProps>();
 
 const { getFacetsFromURL } = useCategoryFilter();
 const { addModernImageExtension } = useModernImage();
@@ -122,6 +107,4 @@ const viewport = useViewport();
 const maxVisiblePages = computed(() => (viewport.isGreaterOrEquals('lg') ? 5 : 1));
 
 if (viewport.isLessThan('md')) close();
-const localePath = useLocalePath();
-const NuxtLink = resolveComponent('NuxtLink');
 </script>

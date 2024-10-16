@@ -10,7 +10,7 @@
     <p class="mt-8 font-medium">{{ $t('emptyStateText') }}</p>
     <p class="mt-4">{{ $t('emptyStateText2') }}</p>
     <UiButton :tag="NuxtLink" :to="localePath(paths.category)" variant="secondary" class="mt-4">
-      {{ $t('allProductsLinkText') }}
+      {{ $t('allProductsLinkText') }} 
     </UiButton>
   </section>
 </template>

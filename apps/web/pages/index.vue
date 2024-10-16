@@ -1,8 +1,8 @@
 <template>
   <!-- Slider Sektion -->
-  <div class="slider max-w-[100%] mx-auto w-full h-[408px] overflow-hidden relative">
+  <div class="slider max-w-[100%] mx-auto w-full h-[150px] sm:h-[200px] md:h-[300px] lg:h-[400px] overflow-hidden relative">
     <div
-      class="slides flex transition-transform ease-in-out duration-1000"
+      class="slides flex transition-transform ease-in-out duration-1000 h-full"
       :style="{ transform: `translateX(-${currentSlide * 100}%)` }"
     >
       <div v-for="(slide, index) in slides" :key="index" class="slide min-w-full h-full">
@@ -31,56 +31,62 @@
   </div>
 
   <!-- Hersteller Icons Sektion -->
-  <div class="w-full bg-gray-200 py-7">
-    <div class="max-w-[90%] mx-auto flex justify-between items-center">
+  <div class="w-full bg-gray-200 py-7 px-3 md:px-6 lg:px-10">
+    <div class=" mx-auto flex justify-center items-center flex-wrap gap-[15px] lg:justify-between">
       <NuxtLink
         v-for="(icon, index) in manufacturerIcons"
         :key="index"
         :to="icon.link"
         class="flex items-center justify-center"
       >
-        <img :src="icon.src" :alt="icon.alt" class="h-12 w-auto cursor-pointer" />
+        <img :src="icon.src" :alt="icon.alt" class="max-h-14 w-auto cursor-pointer" />
       </NuxtLink>
     </div>
   </div>
 
   <!-- Produkte und Kategorien -->
-  <div class="max-w-screen-lg mx-auto py-12">
+  <div class="max-w-screen-3xl px-3 md:px-6 lg:px-10  mx-auto py-12">
     <!-- Erste Zeile: Damen und Herren (volle Höhe) -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
       <NuxtLink to="/damen/bekleidung">
-        <div class="text-center border p-6 h-[400px]">
-          <img
-            src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/damen.png"
-            alt="Damen Mode"
-            class="mx-auto mb-4 h-60"
-          />
+        <div class="text-center border p-6">
+            <div class="mb-4">
+                <img
+                    src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/damen.png"
+                    alt="Damen Mode"
+                    class="mx-auto max-h-[200px] lg:max-h-[250px] max-w-full"
+                />
+            </div>
           <h3 class="font-bold text-3xl">FASHION-TRENDS</h3>
           <p>FÜR DAMEN</p>
         </div>
       </NuxtLink>
       <NuxtLink to="/bekleidung/herren">
-        <div class="text-center border p-6 h-[400px]">
-          <img
-            src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/herren.png"
-            alt="Herren Mode"
-            class="mx-auto mb-4 h-60"
-          />
-          <h3 class="font-bold text-3xl">AKTUELLE MODE</h3>
-          <p>FÜR HERREN</p>
+        <div class="text-center border p-6">
+            <div class="mb-4">
+                <img
+                    src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/herren.png"
+                    alt="Herren Mode"
+                    class="mx-auto max-h-[200px] lg:max-h-[250px] max-w-full"
+                />
+            </div>
+            <h3 class="font-bold text-3xl">AKTUELLE MODE</h3>
+            <p>FÜR HERREN</p>
         </div>
       </NuxtLink>
     </div>
 
     <!-- Zweite Zeile: Rucksack und Ranzen (Bild links, Text rechts) -->
-    <div class="grid grid-cols-2 gap-6 mb-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
       <NuxtLink to="/ausruestung/rucksaecke">
-        <div class="border p-6 h-[150px] flex items-center">
-          <img
-            src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/rucksack.png"
-            alt="Rucksack"
-            class="h-30 mr-4"
-          />
+        <div class="border p-6 h-full flex-col md:flex-row flex items-center">
+            <div class="mr-4">
+                <img
+                    src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/rucksack.png"
+                    alt="Rucksack"
+                    class=" max-w-full"
+                />
+            </div>
           <div>
             <h3 class="font-bold text-xl">DEN RICHTIGEN RUCKSACK</h3>
             <p>FÜR JEDEN AUSFLUG FINDEN</p>
@@ -88,46 +94,52 @@
         </div>
       </NuxtLink>
       <NuxtLink to="/kinder/schule">
-        <div class="border p-6 h-[150px] flex items-center">
-          <img
-            src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/ranzen.png"
-            alt="Ranzen"
-            class="h-30 mr-4"
-          />
-          <div>
-            <h3 class="font-bold text-xl">RUCKSÄCKE & RANZEN</h3>
-            <p>FÜR SCHÜLER JEDEN ALTERS</p>
-          </div>
+        <div class="border p-6 h-full flex-col md:flex-row flex items-center">
+            <div class="mr-4">
+                <img
+                    src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/ranzen.png"
+                    alt="Ranzen"
+                    class="max-w-full"
+                />
+            </div>
+            <div>
+                <h3 class="font-bold text-xl">RUCKSÄCKE & RANZEN</h3>
+                <p>FÜR SCHÜLER JEDEN ALTERS</p>
+            </div>
         </div>
       </NuxtLink>
     </div>
 
     <!-- Dritte Zeile: Fahrradtaschen und Zelte (Bild rechts, Text links) -->
-    <div class="grid grid-cols-2 gap-6 mb-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
       <NuxtLink to="/ausruestung/bike">
-        <div class="border p-6 h-[150px] flex items-center justify-between">
-          <div>
-            <h3 class="font-bold text-xl">WASSERDICHTE</h3>
-            <p>FAHRRADTASCHEN</p>
-          </div>
-          <img
-            src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/fahrrad.png"
-            alt="Fahrradtaschen"
-            class="h-36 ml-4"
-          />
+        <div class="border p-6 h-full flex-col md:flex-row flex items-center justify-between">
+            <div>
+                <h3 class="font-bold text-xl">WASSERDICHTE</h3>
+                <p>FAHRRADTASCHEN</p>
+            </div>
+            <div class="ml-4">
+                <img
+                    src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/fahrrad.png"
+                    alt="Fahrradtaschen"
+                    class=" max-w-full"
+                />
+            </div>
         </div>
       </NuxtLink>
       <NuxtLink to="/zelte">
-        <div class="border p-6 h-[150px] flex items-center justify-between">
+        <div class="border p-6 h-full flex-col md:flex-row flex items-center justify-between">
           <div>
             <h3 class="font-bold text-xl">ZELTE & ZUBEHÖR</h3>
             <p>FÜR DEINEN URLAUB</p>
           </div>
-          <img
-            src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/zelt.png"
-            alt="Zelte"
-            class="h-36 ml-4"
-          />
+            <div class="ml-4">
+                <img
+                    src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/zelt.png"
+                    alt="Zelte"
+                    class="max-w-full"
+                />  
+            </div>
         </div>
       </NuxtLink>
     </div>
@@ -139,7 +151,7 @@
           <img
             src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/img/categorie/sale.png"
             alt="Rabatt Banner"
-            class="w-full h-[150px] object-cover"
+            class="w-full "
           />
           <div class="absolute inset-0 flex flex-col items-center justify-center bg-opacity-50 p-10"></div>
         </div>

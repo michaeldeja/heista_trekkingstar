@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     asyncContext: true,
   },
   appConfig: {
-    titleSuffix: process.env.STORENAME || 'plentyshop PWA',
+    titleSuffix: process.env.STORENAME || 'Trekking Star',
     fallbackCurrency: 'GBP',
   },
   imports: {
@@ -88,10 +88,10 @@ export default defineNuxtConfig({
       '4xl': 1920,
       '3xl': 1536,
       '2xl': 1366,
-      xl: 1280,
-      lg: 1024,
+      xl: 1200,
+      lg: 992,
       md: 768,
-      sm: 640,
+      sm: 576,
       xs: 376,
       '2xs': 360,
     },
@@ -136,9 +136,10 @@ export default defineNuxtConfig({
   },
   viewport: {
     breakpoints: {
-      sm: 640,
-      md: 640,
-      lg: 1024,
+      sm: 576,
+      md: 768,
+      lg: 992,
+      xl: 1200,
     },
     defaultBreakpoints: {
       mobile: 'sm',
@@ -191,7 +192,7 @@ export default defineNuxtConfig({
       cleanupOutdatedCaches: true,
     },
     manifest: {
-      name: 'plentyshop PWA',
+      name: 'Trekking Star',
       short_name: 'plentyshopPWA',
       theme_color: '#0C7992',
       icons: [
