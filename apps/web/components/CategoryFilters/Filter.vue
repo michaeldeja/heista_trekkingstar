@@ -2,7 +2,7 @@
   <SfAccordionItem v-if="facet" v-model="open">
     <template #summary>
       <div class="flex justify-between p-2 mb-2 select-none">
-        <p class="mb-2 font-medium typography-headline-5 text-neutral-900 hover:text-orange-500 hover:font-bold">
+        <p class="mb-2 font-medium typography-headline-5 text-neutral-900 hover:text-orange-500">
           {{ facetGetters.getName(facet) }}
         </p>
         <SfIconChevronLeft :class="['text-neutral-500', open ? 'rotate-90' : '-rotate-90']" />
@@ -59,7 +59,7 @@
             class="flex items-center"
           />
         </template>
-        <p class="select-none hover:text-orange-500 hover:font-bold">
+        <p class="select-none hover:text-orange-500">
           <span class="mr-2 text-sm">{{ filter.name ?? '' }}</span>
           <SfCounter size="sm">{{ filter.count ?? 0 }}</SfCounter>
         </p>

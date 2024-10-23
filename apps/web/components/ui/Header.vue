@@ -1,6 +1,6 @@
 <template>
     <!-- Oberer Bereich -->
-    <div class="bg-gray-900 text-gray-100 py-2">
+    <div class="bg-primary-900 text-gray-100 py-2">
         <div class="max-w-screen-3xl px-3 md:px-6 lg:px-10 mx-auto flex justify-center sm:justify-between items-center flex-wrap text-xs gap-4">
         <!-- Icons und Text zentriert -->
 
@@ -89,7 +89,7 @@
                     />
                 </a>
                 <div class="flex flex-col leading-tight">
-                    <span>{{ $t('header.phoneNumber') }}</span>
+                    <span><a href="tel:{{ $t('header.phoneNumberHref') }}">{{ $t('header.phoneNumber') }}</a></span>
                     <span>{{ $t('header.phoneHours') }}</span>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                     <div v-if="viewport.isLessThan('lg')">
                         <UiButton
                             variant="tertiary"
-                            class="relative text-orange-500 hover:text-black hover:bg-orange-500 active:text-black rounded-md md:hidden"
+                            class="relative text-orange-500 hover:text-black hover:bg-white active:text-black rounded-md md:hidden"
                             square
                             @click="searchModalOpen"
                             :aria-label="t('openSearchModalButtonLabel')">
@@ -126,10 +126,10 @@
                     </div>
 
                     <UiSearch class="hidden md:block flex-1" />
-                    <nav class="hidden md:flex md:flex-row md:flex-nowrap">
+                    <nav class="hidden lg:flex md:flex-row md:flex-nowrap">
                         <!-- Wunschliste -->
                         <UiButton
-                            class="group relative text-orange-500 hover:text-black hover:bg-orange-500 active:text-black rounded-md"
+                            class="group relative text-orange-500 hover:text-black hover:!bg-white active:text-black rounded-md"
                             :tag="NuxtLink"
                             :to="localePath(paths.wishlist)"
                             :aria-label="t('numberInWishlist', { count: wishlistItemIds.length })"
@@ -150,7 +150,7 @@
 
                         <!-- Warenkorb -->
                         <UiButton
-                            class="group relative text-orange-500 hover:text-black hover:bg-orange-500 active:text-black rounded-md"
+                            class="group relative text-orange-500 hover:text-black hover:!bg-white active:text-black rounded-md"
                             :tag="NuxtLink"
                             :to="localePath(paths.cart)"
                             :aria-label="t('numberInCart', { count: cartItemsCount })"
@@ -171,7 +171,7 @@
                             <template #trigger>
                                 <UiButton
                                 variant="tertiary"
-                                class="group relative text-orange-500 hover:text-black hover:bg-orange-500 active:text-black rounded-md"
+                                class="group relative text-orange-500 hover:text-black hover:!bg-white active:text-black rounded-md"
                                 :class="{ 'bg-primary-700': isAccountDropdownOpen }"
                                 @click="accountDropdownToggle()"
                                 data-testid="account-dropdown-button">
@@ -181,7 +181,7 @@
                                     {{ user.user?.firstName }}
                                 </UiButton>
                             </template>
-                            <ul class="group relative text-orange-500 hover:text-black hover:bg-orange-500 active:text-black rounded-md min-w-[152px] py-2">
+                            <ul class="group relative text-orange-500 hover:text-black hover:!bg-white active:text-black rounded-md min-w-[152px] py-2">
                                 <li v-for="({ label, link }, labelIndex) in accountDropdown" :key="`label-${labelIndex}`">
                                     <template v-if="label === t('account.logout')">
                                         <UiDivider class="my-2" />
@@ -204,7 +204,7 @@
                         <UiButton
                             v-else
                             @click="openAuthentication"
-                            class="group relative text-orange-500 hover:text-black hover:bg-orange-500 active:text-black rounded-md"
+                            class="group relative text-orange-500 hover:text-black hover:!bg-white active:text-black rounded-md"
                             variant="tertiary"
                             :aria-label="t('auth.login.openLoginForm')"
                             square>

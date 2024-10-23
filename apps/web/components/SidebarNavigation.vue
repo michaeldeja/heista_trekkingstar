@@ -4,8 +4,8 @@
     <ul class="space-y-2">
       <li><NuxtLink to="/ueber_uns" class="text-black">Über uns</NuxtLink></li>
       <li><NuxtLink to="/jobs" class="text-black">Jobs</NuxtLink></li>
-      <li><NuxtLink to="/terms-and-conditions" class="text-black">AGB</NuxtLink></li>
-      <li><NuxtLink to="/datenschutz" class="text-black">Datenschutz</NuxtLink></li>
+      <li><NuxtLink to="/legal-disclosure" class="text-black">AGB</NuxtLink></li>
+      <li><NuxtLink to="/privacy-policy" class="text-black">Datenschutz</NuxtLink></li>
       <li><NuxtLink to="/retoure" class="text-black">Rücksendungen</NuxtLink></li>
       <li><NuxtLink to="/zahlarten-und-versandinformationen" class="text-black">Zahlarten und Versand</NuxtLink></li>
       <li><NuxtLink to="/contact" class="text-black">Kontakt</NuxtLink></li>

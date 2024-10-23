@@ -149,17 +149,18 @@
     </div>
   </div>
   <!-- button to open cookie tab -->
-  <div v-else class="z-10 h-auto w-12 fixed bottom-[4.3rem] md:bottom-2 left-2 xl:left-auto xl:right-2">
+  <div v-else class="z-10 h-auto w-12 fixed bottom-[4.3rem] lg:bottom-2 left-2 xl:left-auto xl:right-2">
     <SfTooltip :label="$t('CookieBar.Cookie Settings')" placement="left">
       <UiButton
         variant="secondary"
-        class="!px-3 bg-white"
+        class="!px-3 bg-white group"
         :aria-label="$t('CookieBar.Cookie Settings')"
         @click="changeVisibilityState"
         data-testid="cookie-bar-open-btn"
       >
         <SfIconBase viewBox="0 0 24 24" size="base" class="fill-none">
           <path
+            class="group-hover:!stroke-white"
             d="M9 16h.01M12 11h.01M7 10h.01M15 16h.01M21 12a9 9 0 1 1-9-9c0 2.761 1.79 5 4 5 0 2.21 2.239 4 5 4z"
             :style="{ stroke: 'rgb(var(--colors-2-primary-500) / 1)' }"
             stroke-width="2"

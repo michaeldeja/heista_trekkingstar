@@ -1,7 +1,7 @@
 <template>
     <header ref="referenceRef" class="relative w-full h-full z-40 md:sticky md:shadow-md">
         <div
-        class="md:py-5 w-full h-full border-0 bg-white border-neutral-200 md:z-10"
+        class="md:py-5 w-full h-full border-0 bg-white border-neutral-200 border-b-2 border-solid md:z-10"
         data-testid="navbar-top">     
             <slot />
         </div>
@@ -27,14 +27,14 @@
                                 ref="triggerReference"
                                 variant="tertiary"
                                 data-testid="category-button"
-                                class="group mr-2 !text-neutral-900 hover:!bg-neutral-200 hover:!text-neutral-700 active:!bg-neutral-300 active:!text-neutral-900"
+                                class="group mr-2 !text-neutral-900 px-0 hover:!bg-white hover:!text-secondary-500 active:!bg-white active:!text-secondary-500 uppercase"
                                 @mouseenter="menuNode.childCount > 0 ? openMenu([menuNode.id]) : openMenu([])"
                                 @click="menuNode.childCount > 0 ? openMenu([menuNode.id]) : openMenu([])"
                                 >
                                 <span>{{ categoryTreeGetters.getName(menuNode) }}</span>
                                 <SfIconChevronRight
                                     v-if="menuNode.childCount > 0"
-                                    class="rotate-90 text-neutral-500 group-hover:text-neutral-700 group-active:text-neutral-900"
+                                    class="rotate-90 text-neutral-500 group-hover:text-secondary-500 group-active:text-secondary-500"
                                 />
                                 </UiButton>
                             </NuxtLink>
@@ -62,7 +62,7 @@
                                             :tag="NuxtLink"
                                             size="sm"
                                             :href="localePath(generateCategoryLink(node))"
-                                            class="typography-text-sm mb-2"
+                                            class="typography-text-base font-medium !text-[18px] uppercase text-neutral-900 whitespace-nowrap px-4 py-1.5 !px-0 hover:!bg-white hover:!text-secondary-500"
                                         >
                                             {{ categoryTreeGetters.getName(node) }}
                                         </SfListItem>
@@ -73,18 +73,18 @@
                                         :tag="NuxtLink"
                                         size="sm"
                                         :href="localePath(generateCategoryLink(node))"
-                                        class="typography-text-base font-medium text-neutral-900 whitespace-nowrap px-4 py-1.5 border-b border-b-neutral-200 border-b-solid"
+                                        class="typography-text-base font-medium !text-[18px] uppercase text-neutral-900 whitespace-nowrap px-4 py-1.5 !px-0 hover:!bg-white hover:!text-secondary-500"
                                         >
                                             {{ categoryTreeGetters.getName(node) }}
                                         </SfListItem>
-                                        <ul class="mt-2">
+                                        <ul>
                                             <li v-for="child in node.children" :key="child.id">
                                                 <SfListItem
                                                 v-if="categoryTreeGetters.getName(child)"
                                                 :tag="NuxtLink"
                                                 size="sm"
                                                 :href="localePath(generateCategoryLink(child))"
-                                                class="typography-text-sm py-1.5"
+                                                class="typography-text-sm py-1.5 !px-0 hover:!bg-white hover:!text-secondary-500"
                                                 >
                                                     {{ categoryTreeGetters.getName(child) }}
                                                 </SfListItem>
@@ -108,47 +108,45 @@
         class="right-12 max-w-96 bg-white overflow-y-auto z-[1000]"
       >
         <nav>
-          <div class="flex items-center justify-between p-4 border-b border-b-neutral-200 border-b-solid">
+          <div class="flex items-center justify-between px-4 py-2 border-b border-b-neutral-200 border-b-solid ">
             <p class="typography-text-base font-medium">Kategorien</p>
             <UiButton variant="tertiary" square :aria-label="t('closeMenu')" class="ml-2" @click="close()">
-              <SfIconClose class="text-neutral-500" />
+              <SfIconClose class="text-neutral-500 active:text-white hover:text-white" />
             </UiButton>
           </div>
-          <ul class="mt-2 mb-6" v-if="activeMenu">
+          <ul class="mb-6" v-if="activeMenu">
             <li v-if="activeMenu.id !== 0">
               <SfListItem
                 size="lg"
                 tag="button"
                 type="button"
-                class="border-b border-b-neutral-200 border-b-solid"
+                class="border-b border-b-neutral-200 border-b-solid py-2 group hover:bg-primary-50 active:bg-primary-50 active:text-white hover:text-white"
                 @click="goBack()"
               >
-                <div class="flex items-center">
-                  <SfIconArrowBack class="text-neutral-500" />
-                  <p class="ml-5 font-medium">{{ categoryTreeGetters.getName(activeMenu) }}</p>
+                <div class="flex items-cente r">
+                  <SfIconArrowBack class="text-neutral-500 group-hover:text-white group-active:text-white" />
+                  <p class="ml-5 font-medium group-hover:text-white group-active:text-white">{{ categoryTreeGetters.getName(activeMenu) }}</p>
                 </div>
               </SfListItem>
             </li>
             <template v-for="node in activeMenu.children" :key="node.id">
               <li v-if="node.childCount === 0">
-                <SfListItem size="lg" :tag="NuxtLink" :href="localePath(generateCategoryLink(node))" @click="close()">
+                <SfListItem size="lg" :tag="NuxtLink" :href="localePath(generateCategoryLink(node))" @click="close()" class="py-2 group hover:bg-primary-50 active:bg-primary-50 active:text-white hover:text-white">
                   <div class="flex items-center">
-                    <p class="text-left">{{ categoryTreeGetters.getName(node) }}</p>
-                    <SfCounter class="ml-2">{{ categoryTreeGetters.getCount(node) }}</SfCounter>
+                    <p class="text-left group-hover:text-white group-active:text-white">{{ categoryTreeGetters.getName(node) }}</p>
                   </div>
                 </SfListItem>
               </li>
               <li v-else>
-                <SfListItem size="lg" tag="button" type="button" class="!p-0">
+                <SfListItem size="lg" tag="button" type="button" class="!py-2 group hover:bg-primary-50 active:bg-primary-50 active:text-white hover:text-white">
                   <div class="flex items-center w-100">
-                    <NuxtLink class="flex-1 m-0 p-4 pr-0" :to="localePath(generateCategoryLink(node))" @click="close()">
+                    <NuxtLink class="flex-1 m-0 px-0" :to="localePath(generateCategoryLink(node))" @click="close()">
                       <div class="flex items-center">
                         <p class="text-left">{{ categoryTreeGetters.getName(node) }}</p>
-                        <SfCounter class="ml-2">{{ categoryTreeGetters.getCount(node) }}</SfCounter>
                       </div>
                     </NuxtLink>
-                    <div class="flex justify-center items-center h-8 w-16" @click="goNext(node.id)">
-                      <SfIconChevronRight class="text-neutral-500" />
+                    <div class="flex justify-center items-center h-8 w-8" @click="goNext(node.id)">
+                      <SfIconChevronRight class="text-neutral-500 group-hover:text-white group-active:text-white" />
                     </div>
                   </div>
                 </SfListItem>

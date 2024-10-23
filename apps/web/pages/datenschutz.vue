@@ -1,11 +1,11 @@
 <template>
-  <div class="max-w-screen-3xl mx-auto py-12">
+  <div class="max-w-screen-3xl px-3 md:px-6 lg:px-10 mx-auto py-12">
     <div class="flex">
       <!-- Sidebar Navigation einbinden -->
       <SidebarNavigation />
 
       <!-- Inhalt der "Datenschutz" Seite -->
-      <div class="flex-1 px-8">
+      <div class="flex-1 pl-[30px]">
         <h1 class="text-2xl font-bold mb-6">Datenschutzerklärung</h1>
         <p class="mb-4">
           Der Schutz Ihrer Daten ist uns ein wichtiges Anliegen. Wir erheben, speichern und verwenden Ihre Daten

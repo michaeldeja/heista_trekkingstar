@@ -5,9 +5,9 @@ export const appConfiguration = {
       lang: 'de',
     },
     meta: [
-      { name: 'shop-name', content: process.env.STORENAME || 'PLENTYSYSTEMS AG' },
+      { name: 'shop-name', content: process.env.STORENAME || 'Trekking Star' },
       { name: 'description', content: process.env.METADESC || 'Trekking Star' },
-      { name: 'keywords', content: process.env.METAKEYWORDS || 'plentysystems, plentyshop, pwa' },
+      { name: 'keywords', content: process.env.METAKEYWORDS || 'Trekking Star' },
       { name: 'theme-color', content: '#0C7992' },
       { property: 'og:title', content: process.env.OGTITLE || 'Trekking Star' },
       { property: 'og:type', content: 'website' },

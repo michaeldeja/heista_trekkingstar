@@ -637,7 +637,7 @@
   },
   "languageSelector": "Sprachauswahl öffnen",
   "legalDetails": "Rechtliche Informationen",
-  "listSettings": "Listeneinstellungen",
+  "listSettings": "Filter",
   "loading": "Wird geladen...",
   "loadingReviews": "Kundenrezensionen werden geladen...",
   "loginFastCheckout": "Einloggen, um schneller auszuchecken",
@@ -951,6 +951,7 @@
       "positiveReviews": "Über 100.000",
       "reviewCount": "positive Bewertungen",
       "phoneNumber": "+49 (0)209 - 728 47",
+      "phoneNumberHref": "+4920972847",
       "phoneHours": "(Mo - Fr: 8:00 - 16:30 Uhr)"
     }, 
     "footer": {

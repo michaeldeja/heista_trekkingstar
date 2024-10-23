@@ -1,11 +1,11 @@
 <template>
-  <div class="max-w-screen-3xl mx-auto py-12">
+  <div class="max-w-screen-3xl px-3 md:px-6 lg:px-10 mx-auto py-12">
     <div class="flex">
       <!-- Sidebar Navigation einbinden -->
       <SidebarNavigation />
 
       <!-- Dynamischer Hauptinhalt -->
-      <div class="w-3/4 p-6 overflow-x-auto">
+      <div class="flex-1 pl-[30px]">
         <div v-html="getHTMLTexts()" />
       </div>
     </div>

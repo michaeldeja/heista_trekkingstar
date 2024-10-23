@@ -29,7 +29,7 @@
           </p>
         </section>
       </div>
-      <section class="mx-4 mt-28 mb-20">
+      <section class="mx-4 mt-28 mb-20 itemCrosslist">
         <NuxtLazyHydrate when-visible>
           <ProductRecommendedProducts
             :category-id="productGetters.getCategoryIds(product)[0]"

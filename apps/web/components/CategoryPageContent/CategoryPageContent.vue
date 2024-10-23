@@ -1,6 +1,9 @@
 <template>
   <NarrowContainer class="mb-20 px-4 md:px-0" data-testid="category-layout">
-    <h1 class="my-10 font-bold typography-headline-3 md:typography-headline-2">{{ title }}</h1>
+    <div class="my-10">
+        <h1 class=" font-bold typography-headline-3 md:typography-headline-2">{{ title }}</h1>
+        <div class="text-left" v-if="category && category.details[0].description" v-html="category.details[0].description"></div>
+    </div>
     <div class="md:flex gap-6" data-testid="category-page-content">
       <CategorySidebar :is-open="isOpen" @close="close">
         <NuxtLazyHydrate when-visible>
@@ -18,8 +21,7 @@
               })
             }}
           </span>
-          <!-- Button wurde zentriert -->
-          <div class="flex justify-center w-full">
+          <div class="block lg:hidden">
             <UiButton
               @click="open"
               variant="tertiary"
@@ -28,7 +30,6 @@
               <template #prefix>
                 <SfIconTune />
               </template>
-              {{ $t('listSettings') }}
             </UiButton>
           </div>
         </div>
@@ -44,16 +45,6 @@
               :rating-count="productGetters.getTotalReviews(product)"
               :rating="productGetters.getAverageRating(product, 'half')"
               :image-url="addModernImageExtension(productGetters.getCoverImage(product))"
-              :image-alt="
-                productImageGetters.getImageAlternate(productImageGetters.getFirstImage(product)) ||
-                productGetters.getName(product) ||
-                ''
-              "
-              :image-title="
-                productImageGetters.getImageName(productImageGetters.getFirstImage(product)) ||
-                productGetters.getName(product) ||
-                ''
-              "
               :image-height="productGetters.getImageHeight(product) || 600"
               :image-width="productGetters.getImageWidth(product) || 600"
               :slug="productGetters.getSlug(product) + `-${productGetters.getId(product)}`"
@@ -84,6 +75,9 @@
           :max-visible-pages="maxVisiblePages"
         />
       </div>
+    </div>
+    <div class="descriptonTwo"  v-if="category && category.details[0].description2">
+        <div class="text-left" v-html="category.details[0].description2"></div>
     </div>
   </NarrowContainer>
 </template>

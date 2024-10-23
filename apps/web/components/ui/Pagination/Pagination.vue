@@ -10,7 +10,7 @@
       :aria-label="t('prevAriaLabel')"
       :disabled="pagination.selectedPage <= 1 || disabled"
       variant="tertiary"
-      class="gap-3"
+      class="gap-3 !px-3"
       @click="previousPage"
       data-testid="pagination-previous"
     >
@@ -32,7 +32,7 @@
             :class="[
               'px-4 py-3 md:w-12 rounded-md text-neutral-500',
               {
-                'hover:bg-primary-50 hover:text-primary-800 active:bg-primary-50 active:text-primary-700': !disabled,
+                'hover:bg-primary-50 hover:text-primary-800 active:bg-primary-50 active:text-white': !disabled,
               },
             ]"
             :aria-current="pagination.selectedPage === 1 || disabled"
@@ -57,7 +57,7 @@
             :class="[
               'px-4 py-3 md:w-12 rounded-md text-neutral-500',
               {
-                'hover:bg-primary-50 hover:text-primary-800 active:bg-primary-50 active:text-primary-700': !disabled,
+                'hover:bg-primary-50 hover:text-primary-800 active:bg-primary-50 active:text-white': !disabled,
               },
             ]"
             :aria-current="pagination.endPage - 1 === pagination.selectedPage"
@@ -81,7 +81,7 @@
             :class="[
               'px-4 py-3 md:w-12 text-neutral-500 rounded-md',
               {
-                'hover:bg-primary-50 hover:text-primary-800 active:bg-primary-50 active:text-primary-700': !disabled,
+                'hover:bg-primary-50 hover:text-primary-800 active:bg-primary-50 active:text-white': !disabled,
               },
               {
                 '!text-neutral-900 hover:!text-primary-800 active:!text-primary-700': pagination.selectedPage === page,
@@ -103,7 +103,7 @@
             :class="[
               'px-4 py-3 md:w-12 rounded-md text-neutral-500',
               {
-                'hover:bg-primary-50 hover:text-primary-800 active:bg-primary-50 active:text-primary-700': !disabled,
+                'hover:bg-primary-50 hover:text-primary-800 active:bg-primary-50 active:text-white': !disabled,
               },
             ]"
             :aria-label="t('goToPage', { page: 2 })"
@@ -133,7 +133,7 @@
             :class="[
               'px-4 py-3 md:w-12 rounded-md text-neutral-500',
               {
-                'hover:bg-primary-50 hover:text-primary-800 active:bg-primary-50 active:text-primary-700': !disabled,
+                'hover:bg-primary-50 hover:text-primary-800 active:bg-primary-50 active:text-white': !disabled,
               },
             ]"
             :aria-current="pagination.totalPages === pagination.selectedPage"
@@ -151,7 +151,7 @@
       :aria-label="t('nextAriaLabel')"
       :disabled="pagination.selectedPage >= pagination.totalPages || disabled"
       variant="tertiary"
-      class="gap-3"
+      class="gap-3 !px-3"
       @click="nextPage"
       data-testid="pagination-next"
     >

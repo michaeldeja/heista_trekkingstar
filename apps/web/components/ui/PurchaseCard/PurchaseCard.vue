@@ -1,14 +1,23 @@
 <template>
   <form
     @submit.prevent="handleAddToCart()"
-    class="p-4 xl:p-6 md:border md:border-neutral-100 md:shadow-lg md:rounded-md md:sticky md:top-40"
+    class="p-4 xl:p-6 md:border md:border-neutral-100 md:shadow-lg md:rounded-md md:sticky md:top-0"
     data-testid="purchase-card"
   >
+    <div>
+        <template v-if="manufLogo">
+            <NuxtImg            
+                :alt="manufName"
+                class="manufImg max-h-[40px]" 
+                :src="manufLogo" 
+            />
+        </template>
+    </div>
     <div class="grid grid-cols-[2fr_1fr] mt-4">
       <h1 class="font-bold typography-headline-4" data-testid="product-name">
         {{ productGetters.getName(product) }}
       </h1>
-      <div class="flex items-center justify-center">
+      <div class="flex items-center justify-end">
         <WishlistButton
           :product="product"
           :quantity="quantitySelectorValue"
@@ -17,14 +26,20 @@
             'bottom-0 right-0 mr-2 mb-2 bg-white ring-1 ring-inset ring-neutral-200 !rounded-full':
               viewport.isLessThan('lg'),
           }"
-        >
-          <template v-if="viewport.isGreaterOrEquals('lg')">
-            {{ !isWishlistItem(productGetters.getVariationId(product)) ? t('addToWishlist') : t('removeFromWishlist') }}
-          </template>
+        >         
         </WishlistButton>
       </div>
     </div>
-    <div class="flex space-x-2">
+    <div
+      v-if="productGetters.getShortDescription(product).length > 0"
+      class="mb-4 font-normal typography-text-sm whitespace-pre-line break-words"
+      data-testid="product-description"
+    >
+      {{ productGetters.getShortDescription(product) }}
+    </div>
+
+
+    <div class="flex space-x-2 mt-3">
       <Price :price="priceWithProperties" :crossed-price="crossedPrice" />
       <div v-if="(productBundleGetters?.getBundleDiscount(product) ?? 0) > 0" class="m-auto">
         <UiTag :size="'sm'" :variant="'secondary'">{{
@@ -39,10 +54,11 @@
       :unit-content="productGetters.getUnitContent(product)"
       :unit-name="productGetters.getUnitName(product)"
     />
-    <UiBadges class="mt-4" :product="product" :use-availability="true" />
+    <UiBadges class="mt-4 availabilityWrapper" :product="product" :use-availability="true" />
     <div class="mt-2 variation-properties">
       <VariationProperties :product="product" />
     </div>
+    <!--
     <div class="inline-flex items-center mt-4 mb-2">
       <SfRating
         size="xs"
@@ -60,13 +76,7 @@
         {{ t('showAllReviews') }}
       </UiButton>
     </div>
-    <div
-      v-if="productGetters.getShortDescription(product).length > 0"
-      class="mb-4 font-normal typography-text-sm whitespace-pre-line break-words"
-      data-testid="product-description"
-    >
-      {{ productGetters.getShortDescription(product) }}
-    </div>
+    -->    
 
     <BundleOrderItems v-if="product.bundleComponents" :product="product" />
     <OrderProperties :product="product" />
@@ -106,12 +116,13 @@
           </UiButton>
         </SfTooltip>
       </div>
-
+        <!--
       <div class="mt-4 typography-text-xs flex gap-1">
         <span>{{ t('asterisk') }}</span>
         <span>{{ showNetPrices ? t('itemExclVAT') : t('itemInclVAT') }}</span>
         <span>{{ t('excludedShipping') }}</span>
       </div>
+      -->
       <template v-if="showPayPalButtons">
         <PayPalExpressButton type="SingleItem" @validation-callback="paypalHandleAddToCart" class="mt-4" />
         <PayPalPayLaterBanner placement="product" :amount="priceWithProperties * quantitySelectorValue" />
@@ -224,6 +235,13 @@ const openReviewsAccordion = () => {
   const customerReviewsClickElement = document.querySelector('#customerReviewsClick') as HTMLElement;
   customerReviewsClickElement?.click();
 };
+
+const prod = JSON.parse(JSON.stringify(product));
+
+const manufacturer = prod.item.manufacturer as { name: string };
+const manufacturerLogo = prod.item.manufacturer as { logo: string };
+const manufName = manufacturer.name;
+const manufLogo = manufacturerLogo.logo;
 
 const isSalableText = computed(() => (productGetters.isSalable(product) ? '' : t('itemNotAvailable')));
 const isNotValidVariation = computed(() => (getCombination() ? '' : t('productAttributes.notValidVariation')));

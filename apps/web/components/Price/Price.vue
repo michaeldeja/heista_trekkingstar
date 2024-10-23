@@ -1,11 +1,11 @@
 <template>
-  <div class="text-sm py-1">
-    <span class="mr-2 text-secondary-500 font-bold font-headings text-2xl" data-testid="price">
+  <div class="flex flex-col text-sm py-1">
+    <span class="mr-2 font-headings text-2xl" :class="{ 'text-red-500': crossedPrice && crossedPrice > price }" data-testid="price">
       {{ $n(price, 'currency') }}
       <span v-if="showNetPrices">{{ $t('asterisk') }} </span>
     </span>
-    <span v-if="crossedPrice" class="text-base font-normal text-neutral-500 line-through">
-      {{ $n(crossedPrice, 'currency') }}
+    <span v-if="crossedPrice && crossedPrice > price" class="text-base font-normal text-neutral-500 ">
+      UVP {{ $n(crossedPrice, 'currency') }}
     </span>
   </div>
 </template>

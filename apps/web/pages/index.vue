@@ -1,13 +1,13 @@
 <template>
   <!-- Slider Sektion -->
-  <div class="slider max-w-[100%] mx-auto w-full h-[150px] sm:h-[200px] md:h-[300px] lg:h-[400px] overflow-hidden relative">
+  <div class="slider max-w-[100%] mx-auto w-full h-[150px] sm:h-[200px] md:h-[300px] lg:h-[400px] xl:h-[500px] overflow-hidden relative">
     <div
       class="slides flex transition-transform ease-in-out duration-1000 h-full"
       :style="{ transform: `translateX(-${currentSlide * 100}%)` }"
     >
       <div v-for="(slide, index) in slides" :key="index" class="slide min-w-full h-full">
         <NuxtLink :to="slide.link">
-          <img :src="slide.image" :alt="slide.alt" class="w-full h-full object-cover cursor-pointer" />
+          <img :src="slide.image" :alt="slide.alt" class="w-full h-full object-cover cursor-pointer object-left-top" />
         </NuxtLink>
       </div>
     </div>

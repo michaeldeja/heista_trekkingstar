@@ -31,7 +31,7 @@
           <p class="w-4 text-center">{{ 5 - key }}</p>
           <SfIconStarFilled class="mx-2 pb-1 text-warning-500" size="base" />
           <SfProgressLinear
-            class="self-center"
+            class="self-center bg-primary-50"
             size="sm"
             :value="proportionalRating"
             aria-label="proportional-rating-in-percent"

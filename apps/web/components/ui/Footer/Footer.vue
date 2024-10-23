@@ -1,14 +1,14 @@
 <template>
   <footer class="bg-black text-white">
     <!-- Erste Zeile: Kategorien -->
-    <div class="max-w-screen-3xl px-3 md:px-6 lg:px-10 mx-auto grid grid-cols-2 md:grid-cols-5 gap-6 py-8">
+    <div class="max-w-screen-3xl px-3 md:px-6 lg:px-10 mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 py-8">
       
       <!-- Trekking Star -->
       <div>
         <h3 class="font-bold mb-4">{{ $t('footer.trekkingStar.title') }}</h3>
         <ul>
           <li>
-            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline no-underline" :to="'/about-us'">
+            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline no-underline" :to="'/ueber_uns'">
               {{ $t('footer.trekkingStar.aboutUs') }}
             </SfLink>
           </li>
@@ -35,7 +35,7 @@
             </SfLink>
           </li>
           <li>
-            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline" :to="'/shipping'">
+            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline" :to="'/zahlarten-und-versandinformationen'">
               {{ $t('footer.shopService.shippingInfo') }}
             </SfLink>
           </li>
@@ -51,11 +51,6 @@
               {{ $t('footer.information.ourBrands') }}
             </SfLink>
           </li>
-          <li>
-            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline" :to="'/sitemap'">
-              {{ $t('footer.information.sitemap') }}
-            </SfLink>
-          </li>
         </ul>
       </div>
 
@@ -64,7 +59,7 @@
         <h3 class="font-bold mb-4">{{ $t('footer.legal.title') }}</h3>
         <ul>
           <li>
-            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline" :to="'/terms-and-conditions'">
+            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline" :to="'/legal-disclosure'">
               {{ $t('footer.legal.terms') }}
             </SfLink>
           </li>
@@ -74,7 +69,7 @@
             </SfLink>
           </li>
           <li>
-            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline" :to="'/datenschutz'">
+            <SfLink :tag="NuxtLink" class="!text-white hover:!text-neutral-300 no-underline" :to="'/privacy-policy'">
               {{ $t('footer.legal.privacyPolicy') }}
             </SfLink>
           </li>
@@ -99,11 +94,11 @@
 
     <!-- Zweite Zeile: Partner und Zahlungsarten -->
     <div class="bg-white text-black py-8">
-      <div class="max-w-screen-3xl px-3 md:px-6 lg:px-10 mx-auto grid grid-cols-2 md:grid-cols-3 gap-6 ">
+      <div class="max-w-screen-3xl px-3 md:px-6 lg:px-10 mx-auto grid sm:grid-cols-2 gap-6">
         <!-- Partner -->
         <div>
-          <h3 class="font-bold mb-4 text-center md:text-left">{{ $t('footer.partner.title') }}</h3>
-          <div class="flex justify-center md:justify-start space-x-4">
+          <h3 class="font-bold mb-4 text-left">{{ $t('footer.partner.title') }}</h3>
+          <div class="flex justify-start gap-[10px]">
             <img
               src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/idealo.png"
               alt="Idealo"
@@ -115,8 +110,8 @@
 
         <!-- Zahlungsarten -->
         <div>
-          <h3 class="font-bold mb-4 text-center md:text-left">{{ $t('footer.paymentMethods.title') }}</h3>
-          <div class="flex justify-center md:justify-start space-x-4">
+          <h3 class="font-bold mb-4 text-left">{{ $t('footer.paymentMethods.title') }}</h3>
+          <div class="flex justify-start flex-wrap gap-[10px]">
             <img
               src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/icon_paypal.png"
               alt="PayPal"
@@ -135,7 +130,7 @@
             <img
               src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/footer/icon_vorkasse.png"
               alt="Vorkasse"
-              class="mx-auto"
+              class=""
             />
           </div>
         </div>
@@ -143,8 +138,8 @@
     </div>
 
     <!-- Dritte Zeile: Copyright und Firmenname -->
-    <div class="bg-gray-100 py-4">
-      <div class="max-w-screen-3xl px-3 md:px-6 lg:px-10 mx-auto text-center text-neutral-600">
+    <div class="bg-gray-100 py-4 pb-14">
+      <div class="max-w-screen-3xl px-3 md:px-6 lg:px-10 mx-auto text-center text-neutral-600 ">
         <img
           src="https://cdn02.plentymarkets.com/gfckbh0ooc5t/frontend/logo/trekking-star-footer.png"
           alt="Logo Footer"

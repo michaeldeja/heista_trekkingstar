@@ -62,3 +62,22 @@ apple-pay-button {
   --apple-pay-button-border-radius: 7px;
   --apple-pay-button-box-sizing: border-box;
 }
+.availabilityWrapper{
+    > ul {
+        li{
+            display: none;
+        }
+        li[class^="availability-"], li[class*=' availability-']{
+            display: grid;
+        }
+    }
+}
+.itemCrosslist{
+    > div > button{
+        &:hover{
+            svg{
+                fill: #fff;
+            }
+        }
+    }
+}
